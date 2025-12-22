@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main id="main">
+        <!-- <nav></nav> -->
+      <section class="allelems">
+        <div class="to-do elem" id="0">
+          <img src="./images/todo.webp" alt="">
+          <h1>Task Management</h1>
+        </div>
+        <div class="daily elem" id="1">
+          <img src="./images/planning.webp" alt="" />
+          <h1>Daily Planner</h1>
+        </div>
+        <div class="moti elem" id="2">
+          <img src="./images/motivation.webp" alt="" />
+          <h1>Motivational Quotes</h1>
+        </div>
+        <div class="pomo elem" id="3">
+          <img src="./images/timer.webp" alt="" />
+          <h1>Pomodoro Timer</h1>
+        </div>
+        <div class="goals elem" id="4">
+          <img src="./images/goals.webp" alt="" />
+          <h1>Daily Goals</h1>
+        </div>
+      </section>
+      <section class="fullelems todo-fullpage">
+        <button class="back" id="0"><i class="ri-arrow-left-line"></i></button>
+        <h1>Your To-Do Space 📝</h1>
+        <div class="todo-container">
+            <div class="addTask">
+                <form>
+                    <h2>Add New Task Here</h2>
+                    <input type="text" placeholder="Enter Task">
+                    <textarea placeholder="Enter Details" name="" id="" cols="20" rows="5"></textarea>
+                    <button class="btn">Submit</button>
+                </form>
+            </div>
+            <div class="allTask">
+                <div class="task">
+                    <h4>do your work</h4>
+                    <div class="task-btns">
+                        <button class="completed btns">Mark As Completed</button>
+                        <button class="pending btns">Pending</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <section class="fullelems planner-fullpage">
+        <button class="back" id="1"><i class="ri-arrow-left-line"></i></button>
+        <h1>Daily Planner</h1>
+      </section>
+      <section class="fullelems quotes-fullpage">
+        <button class="back" id="2"><i class="ri-arrow-left-line"></i></button>
+        <h1>Motivational Quotes</h1>
+      </section>
+      <section class="fullelems timer">
+        <button class="back" id="3"><i class="ri-arrow-left-line"></i></button>
+        <h1>Pomodoro Timer</h1>
+      </section>
+      <section class="fullelems goals">
+        <button class="back" id="4"><i class="ri-arrow-left-line"></i></button>
+        <h1>Daily Goalst</h1>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
