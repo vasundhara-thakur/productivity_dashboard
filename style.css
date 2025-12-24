@@ -76,7 +76,10 @@ section.allelems {
   background-color: var(--pri);
   padding: 20px;
   position: absolute;
+  top: 0;
+  left: 0;
   display: none;
+  overflow: auto;
 }
 .fullelems h1 {
   font-size: 50px;
@@ -125,16 +128,21 @@ section.allelems {
 .todo-container .addTask form {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
   padding: 30px;
 }
 .todo-container .addTask form h2 {
   font-size: 28px;
   font-weight: 600;
   text-shadow: 0 5px 10px rgba(0, 0, 0, 0.28);
+}
+.todo-container .addTask form .form-requirements {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 30px;
 }
 .todo-container .addTask form input,
 textarea,
@@ -149,6 +157,8 @@ textarea,
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.28);
 }
 .btn {
+  margin-top: 50px;
+  width: 40%;
   background-color: var(--sec);
   color: var(--quat);
 }
@@ -162,6 +172,22 @@ textarea,
   border-radius: 10px;
   font-size: 20px;
 }
+.allTask .task .dets {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.allTask .task details {
+  font-size: 14px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+.allTask .task .task-btns {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .allTask .task .btns {
   padding: 5px 8px;
   border-radius: 5px;
@@ -169,11 +195,8 @@ textarea,
   border: none;
   color: var(--quat);
 }
-.allTask .task .completed {
-  background-color: green;
-}
-.allTask .task .pending {
-  background-color: rgb(255, 174, 0);
+.allTask .task .delete {
+  background-color: rgb(236, 3, 3);
 }
 /* ========== TABLET (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
@@ -271,5 +294,8 @@ textarea,
   .btn {
     font-size: 16px;
     padding: 8px 15px;
+  }
+  .allTask .task .task-btns {
+    flex-direction: column;
   }
 }

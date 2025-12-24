@@ -12,10 +12,10 @@
   </head>
   <body>
     <main id="main">
-        <!-- <nav></nav> -->
+      <!-- <nav></nav> -->
       <section class="allelems">
         <div class="to-do elem" id="0">
-          <img src="./images/todo.webp" alt="">
+          <img src="./images/todo.webp" alt="" />
           <h1>Task Management</h1>
         </div>
         <div class="daily elem" id="1">
@@ -37,25 +37,27 @@
       </section>
       <section class="fullelems todo-fullpage">
         <button class="back" id="0"><i class="ri-arrow-left-line"></i></button>
-        <h1>Your To-Do Space 📝</h1>
+        <h1>Your To-Do Space</h1>
         <div class="todo-container">
-            <div class="addTask">
-                <form>
-                    <h2>Add New Task Here</h2>
-                    <input type="text" placeholder="Enter Task">
-                    <textarea placeholder="Enter Details" name="" id="" cols="20" rows="5"></textarea>
-                    <button class="btn">Submit</button>
-                </form>
-            </div>
-            <div class="allTask">
-                <div class="task">
-                    <h4>do your work</h4>
-                    <div class="task-btns">
-                        <button class="completed btns">Mark As Completed</button>
-                        <button class="pending btns">Pending</button>
-                    </div>
-                </div>
-            </div>
+          <div class="addTask">
+            <form>
+              <h2>Add New Task Here</h2>
+              <div class="form-requirements">
+                <input type="text" placeholder="Enter Task" />
+                <textarea
+                  placeholder="Enter Details"
+                  name=""
+                  id=""
+                  cols="20"
+                  rows="5"
+                ></textarea>
+                <button class="btn">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="allTask">
+            <div class="tasks"></div>
+          </div>
         </div>
       </section>
       <section class="fullelems planner-fullpage">
@@ -72,7 +74,7 @@
       </section>
       <section class="fullelems goals">
         <button class="back" id="4"><i class="ri-arrow-left-line"></i></button>
-        <h1>Daily Goalst</h1>
+        <h1>Daily Goals</h1>
       </section>
     </main>
 
