@@ -116,5 +116,45 @@ function todoList() {
     localStorage.setItem("task", JSON.stringify(currTask));
   }
 }
-
 todoList();
+
+function dailyPlanner() {
+  const planner = document.querySelector(".day-planner");
+  let dayData = JSON.parse(localStorage.getItem("dayData")) || {};
+
+  let dayPlan = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00`);
+
+  let daySum = "";
+  dayPlan.forEach(function (elem, idx) {
+    let savedData = dayData[idx] || "";
+
+    daySum += `<div class="planner-time">
+            <p>${elem}</p>
+            <input id=${idx} type="text" placeholder="...." value=${savedData}>
+          </div>`;
+  });
+  planner.innerHTML = daySum;
+
+  const input = document.querySelectorAll(".planner-time input");
+
+  input.forEach(function (elem) {
+    elem.addEventListener("input", () => {
+      dayData[elem.id] = elem.value;
+
+      localStorage.setItem("dayData", JSON.stringify(dayData));
+    });
+  });
+}
+dailyPlanner();
+
+const quotes = document.querySelector(".quote-2 h4");
+const author = document.querySelector(".quote-3 h2")
+async function fetchQuotes() {
+  const response = await fetch("https://motivational-spark-api.vercel.app/api/quotes/random");
+  const data = await response.json();
+
+  quotes.innerHTML = data.quote;
+  author.innerHTML = data.author;
+}
+
+fetchQuotes();

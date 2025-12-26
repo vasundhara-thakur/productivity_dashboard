@@ -3,7 +3,7 @@
   src: url(./Font/Montserrat-VariableFont_wght.ttf);
 }
 :root {
-  --pri: #f4f4f4;
+  --pri: #e1dddd;
   --sec: #435585;
   --teri: #818fb4;
   --quat: #fcf8f8;
@@ -73,7 +73,7 @@ section.allelems {
 .fullelems {
   width: 100%;
   height: 100%;
-  background-color: var(--pri);
+  background-color: var(--teri);
   padding: 20px;
   position: absolute;
   top: 0;
@@ -98,10 +98,6 @@ section.allelems {
 .back:active {
   scale: 0.9;
 }
-/* .todo-fullpage {
-  width: 100%;
-  height: 100%;
-} */
 .todo-fullpage .todo-container {
   width: 100%;
   height: 80%;
@@ -114,14 +110,14 @@ section.allelems {
 .todo-fullpage .todo-container .addTask {
   width: 33%;
   height: 100%;
-  background-color: var(--teri);
+  background-color: var(--sec);
   border-radius: 10px;
   box-shadow: 0 5px 10px var(--sec);
 }
 .todo-fullpage .todo-container .allTask {
   width: 65%;
   height: 100%;
-  background-color: var(--teri);
+  background-color: var(--sec);
   border-radius: 10px;
   box-shadow: 0 5px 10px var(--sec);
 }
@@ -159,7 +155,7 @@ textarea,
 .btn {
   margin-top: 50px;
   width: 40%;
-  background-color: var(--sec);
+  background-color: var(--teri);
   color: var(--quat);
 }
 .todo-container .allTask .task {
@@ -198,6 +194,103 @@ textarea,
 .allTask .task .delete {
   background-color: rgb(236, 3, 3);
 }
+.planner-fullpage {
+  background-color: var(--teri);
+}
+.planner-fullpage .day-planner {
+  width: 100%;
+  height: 70%;
+  background-color: var(--sec);
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.day-planner .planner-time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 48%;
+  position: relative;
+}
+.day-planner .planner-time p {
+  position: absolute;
+  top: 5%;
+  left: 0.2%;
+  font-size: 18px;
+}
+.day-planner .planner-time input {
+  padding: 20px 40px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  font-size: 24px;
+  background-color: var(--pri);
+}
+.quotes-fullpage{
+  display: block;
+  position: relative;
+  background: radial-gradient(var(--pri), var(--sec));
+}
+.quotes-fullpage .quote-container{
+  width: 60%;
+  height: 500px;
+  border-radius: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quotes-fullpage .quote-container .quote-wrapper{
+  width: 100%;
+  border-radius: 20px;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  position: absolute;
+  z-index: 10;
+  padding: 15px;
+  background-color: transparent;
+}
+.quote-1{
+  height: 60px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 30px;
+}
+.quote-1 h2{
+  font-size: 35px;
+  font-weight: 600;
+}
+.quote-2{
+  padding: 15px;
+}
+.quote-2 h4{
+  font-size: 40px;
+  font-weight: 400;
+}
+.quote-3{
+  padding: 12px;
+  text-align: right;
+  border-radius: 30px;
+}
+.quote-3 h2{
+  font-size: 30px;
+  font-weight: 500;
+}
+@keyframes rotate{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* ========== TABLET (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
   section.allelems {
@@ -207,8 +300,8 @@ textarea,
   }
 
   .elem {
-    width: 280px;
-    height: 330px;
+  height: 300px;
+  width: 250px;
   }
 
   .todo-fullpage .todo-container {
@@ -222,6 +315,7 @@ textarea,
     width: 100%;
     height: auto;
   }
+
 }
 
 /* ========== MOBILE (max-width: 768px) ========== */
@@ -232,9 +326,8 @@ textarea,
   }
 
   .elem {
-    width: 100%;
-    max-width: 350px;
-    height: 320px;
+    max-width: 350vw;
+    height: 250px;
   }
 
   .elem h1 {
@@ -261,6 +354,16 @@ textarea,
     gap: 10px;
     font-size: 18px;
   }
+  .day-planner .planner-time{
+  width: 100%;
+  }
+  .quote-1 h2{
+  font-size: 30px;
+}
+.quote-2 h4{
+  font-size: 25px;
+  margin-top: 20px;
+}
 }
 
 /* ========== SMALL MOBILE (max-width: 480px) ========== */
@@ -295,6 +398,10 @@ textarea,
     font-size: 16px;
     padding: 8px 15px;
   }
+  .allTask .task .dets {
+  flex-direction: column;
+  align-items: flex-start;
+}
   .allTask .task .task-btns {
     flex-direction: column;
   }
