@@ -147,14 +147,139 @@ function dailyPlanner() {
 }
 dailyPlanner();
 
-const quotes = document.querySelector(".quote-2 h4");
-const author = document.querySelector(".quote-3 h2")
-async function fetchQuotes() {
-  const response = await fetch("https://motivational-spark-api.vercel.app/api/quotes/random");
-  const data = await response.json();
+function motivationalQuotes() {
+  const quotes = document.querySelector(".quote-2 h4");
+  const author = document.querySelector(".quote-3 h2");
+  async function fetchQuotes() {
+    const response = await fetch(
+      "https://motivational-spark-api.vercel.app/api/quotes/random"
+    );
+    const data = await response.json();
 
-  quotes.innerHTML = data.quote;
-  author.innerHTML = data.author;
+    quotes.innerHTML = data.quote;
+    author.innerHTML = data.author;
+  }
+
+  fetchQuotes();
 }
+motivationalQuotes();
 
-fetchQuotes();
+function pomodoroTimer() {
+  let totalSeconds = 25 * 60;
+  let timer = document.querySelector(".pomo-timer h2");
+  let startBtn = document.querySelector(".pomo-timer .start-timer");
+  let pauseBtn = document.querySelector(".pomo-timer .pause-timer");
+  let resetBtn = document.querySelector(".pomo-timer .reset-timer");
+  let session = document.querySelector(".timer .session");
+  let startInterval = null;
+  let isWorkSession = true;
+
+  function updateTime() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    timer.innerHTML = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
+  }
+
+  function startTimer() {
+    clearInterval(startInterval);
+    if (isWorkSession) {
+      startInterval = setInterval(() => {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          updateTime();
+        } else {
+          isWorkSession = false;
+          clearInterval(startInterval);
+          timer.innerHTML = "05:00";
+          session.innerHTML = "Take a Break";
+          session.style.backgroundColor = "var(--pri)";
+          totalSeconds = 5 * 60;
+        }
+      }, 1000);
+    } else {
+      startInterval = setInterval(() => {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          updateTime();
+        } else {
+          isWorkSession = true;
+          clearInterval(startInterval);
+          timer.innerHTML = "25:00";
+          session.innerHTML = "Working Time";
+          session.style.backgroundColor = "var(--sec)";
+          totalSeconds = 25 * 60;
+        }
+      }, 1000);
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(startInterval);
+  }
+
+  function resetTimer() {
+    clearInterval(startInterval);
+    totalSeconds = 25 * 60;
+    updateTime();
+  }
+
+  startBtn.addEventListener("click", startTimer);
+  pauseBtn.addEventListener("click", pauseTimer);
+  resetBtn.addEventListener("click", resetTimer);
+}
+pomodoroTimer();
+
+let fulldate = document.querySelector(".header1 h2");
+let dayTime = document.querySelector(".header1 h1");
+let temp = document.querySelector(".header2 h2");
+let condition = document.querySelector(".header2 .condition");
+let humidity = document.querySelector(".header2 .humidity");
+let wind = document.querySelector(".header2 .wind");
+let data = null;
+
+async function weatherAPICall() {
+  const apiKey = `742e0da1c5c94345a55144813252712`;
+  let city = "indore";
+  let res = await fetch(
+    `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
+  );
+
+  data = await res.json();
+   console.log(data.current)
+
+   temp.innerHTML = `${data.current.temp_c} °C`;
+   condition.innerHTML = ` ${data.current.condition.text}`;
+   humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+   wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
+}
+weatherAPICall();
+
+function currDayTime() {
+  let date = new Date();
+
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  let dayOfWeek = days[date.getDay()];
+  let currDate = date.getDate();
+  let monthOfYear = months[date.getMonth()];
+  let year = date.getFullYear();
+
+  let hours = date.getHours();
+  let minutes = String(date.getMinutes()).padStart(2, "0");
+
+  let period = hours >= 12 ? "PM" : "AM";
+  let displayHours = hours % 12 || 12;
+
+  fulldate.innerHTML = `${currDate} ${monthOfYear}, ${year}`;
+  dayTime.innerHTML = `${dayOfWeek}, ${displayHours}:${minutes} ${period}`;
+}
+currDayTime();
+setInterval(currDayTime, 1000);
+

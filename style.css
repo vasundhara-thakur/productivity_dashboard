@@ -24,25 +24,54 @@ main {
   width: 100%;
   height: 100vh;
 }
-/* nav {
-  width: 8%;
-  height: 100%;
-  background-color: var(--sec);
-} */
 section.allelems {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: start;
-  gap: 40px;
   padding: 40px;
   padding-top: 80px;
   position: absolute;
 }
+.allelems header {
+  height: 40%;
+  width: 100%;
+  background:linear-gradient( var(--pri), var(--sec));
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .header1 h1{
+  font-size: 80px;
+  font-weight: 500;
+}
+header .header1 h2{
+  font-size: 22px;
+  font-weight: 500;
+}
+header .header1 h4{
+  font-size: 60px;
+  font-weight: 500;
+}
+header .header2 h2{
+  font-size: 60px;
+  font-weight: 500;
+}
+header .header2 h3{
+  font-size: 25px;
+  font-weight: 500;
+}
+.allelems .allFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-around;
+  gap: 40px;
+}
 .elem {
-  height: 300px;
-  width: 250px;
+  height: 350px;
+  width: 300px;
   background-color: var(--teri);
   border-radius: 10px;
   box-shadow: 0 5px 10px var(--sec);
@@ -233,7 +262,6 @@ textarea,
   background-color: var(--pri);
 }
 .quotes-fullpage{
-  display: block;
   position: relative;
   background: radial-gradient(var(--pri), var(--sec));
 }
@@ -283,20 +311,55 @@ textarea,
   font-size: 30px;
   font-weight: 500;
 }
-@keyframes rotate{
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.timer h1{
+  font-size: 50px;
+}
+.timer .pomo-timer{
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.timer .pomo-timer h2{
+  font-size: 100px;
+}
+.timer .session{
+  font-size: 30px;
+  background-color: var(--sec);
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.timer .session h3{
+  font-size: 30px;
+  font-weight: 500;
+}
+.timer .pomo-timer button{
+  background-color: var(--sec);
+  padding:10px 20px;
+  font-size: 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0px black;
+  transition: all ease 0.2s
+}
+.timer .pomo-timer button:active{
+  scale: 0.95;
+  box-shadow: 0px 0px 0px black;
 }
 /* ========== TABLET (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
-  section.allelems {
+  section .allFeatures {
     gap: 30px;
     padding: 30px;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .elem {
@@ -320,11 +383,30 @@ textarea,
 
 /* ========== MOBILE (max-width: 768px) ========== */
 @media (max-width: 768px) {
-  section.allelems {
+  section .allelems {
     padding: 20px;
     gap: 20px;
   }
-
+  header .header1 h1{
+  font-size: 35px;
+  font-weight: 500;
+}
+header .header1 h2{
+  font-size: 18px;
+  font-weight: 500;
+}
+header .header1 h4{
+  font-size: 25px;
+  font-weight: 500;
+}
+header .header2 h2{
+  font-size: 25px;
+  font-weight: 500;
+}
+header .header2 h3{
+  font-size: 20px;
+  font-weight: 500;
+}
   .elem {
     max-width: 350vw;
     height: 250px;
@@ -371,7 +453,29 @@ textarea,
   section.allelems {
     padding: 15px;
   }
-
+  .allelems header{
+    flex-direction: column;
+  }
+  header .header1 h1{
+  font-size: 25px;
+  font-weight: 500;
+}
+header .header1 h2{
+  font-size: 15px;
+  font-weight: 500;
+}
+header .header1 h4{
+  font-size: 20px;
+  font-weight: 500;
+}
+header .header2 h2{
+  font-size: 20px;
+  font-weight: 500;
+}
+header .header2 h3{
+  font-size: 18px;
+  font-weight: 500;
+}
   .elem {
     height: 300px;
   }
