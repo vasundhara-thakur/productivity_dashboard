@@ -61,13 +61,13 @@ header .header1 h4 {
   font-size: 60px;
   font-weight: 500;
 }
-header .header2 .temp, 
-header .header2 .condition{
+header .header2 .temp,
+header .header2 .condition {
   font-size: 60px;
   font-weight: 500;
 }
-header .header2 .humidity, 
-header .header2 .wind{
+header .header2 .humidity,
+header .header2 .wind {
   font-size: 25px;
   font-weight: 500;
 }
@@ -636,11 +636,13 @@ textarea,
     font-size: 20px;
     font-weight: 500;
   }
-  header .header2 h2 {
+  header .header2 .temp,
+  header .header2 .condition {
     font-size: 20px;
     font-weight: 500;
   }
-  header .header2 h3 {
+  header .header2 .humidity,
+  header .header2 .wind {
     font-size: 18px;
     font-weight: 500;
   }
