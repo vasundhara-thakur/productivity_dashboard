@@ -27,21 +27,22 @@ function weatherApi() {
   let wind = document.querySelector(".header2 .wind");
   let data = null;
 
-  async function weatherAPICall() {
-    const apiKey = `742e0da1c5c94345a55144813252712`;
-    let city = "indore";
-    let res = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
-    );
+  const apiKey = "bee21bcb40eee19046561a80dda06f75";
+const city = "Indore";
 
-    data = await res.json();
+async function weatherAPICall() {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+  );
 
-    temp.innerHTML = `${data.current.temp_c} °C`;
-    condition.innerHTML = ` ${data.current.condition.text}`;
-    humidity.innerHTML = `Humidity: ${data.current.humidity}`;
-    wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
-  }
-  weatherAPICall();
+  const data = await res.json();
+
+  temp.innerHTML = `${data.main.temp} °C`;
+  condition.innerHTML = data.weather[0].description;
+  humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
+  wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
+}
+weatherAPICall();
 
   function currDayTime() {
     let date = new Date();
