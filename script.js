@@ -6,12 +6,14 @@ function openFeatures() {
   allElems.forEach((elem) => {
     elem.addEventListener("click", () => {
       fullElemsPage[elem.id].style.display = "block";
+      allElems.forEach(e => e.style.display = "none");
     });
   });
 
   FullElemsBackBtn.forEach((back) => {
     back.addEventListener("click", () => {
       fullElemsPage[back.id].style.display = "none";
+      allElems.forEach(e => e.style.display = "block");
     });
   });
 }

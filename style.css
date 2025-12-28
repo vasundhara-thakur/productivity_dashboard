@@ -109,8 +109,8 @@ header .header2 .wind {
   scale: 0.9;
 }
 .fullelems {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--teri);
   padding: 20px;
   position: absolute;
@@ -558,7 +558,6 @@ textarea,
   .elem h1 {
     font-size: 18px;
   }
-
   .fullelems h1 {
     font-size: 36px;
   }
