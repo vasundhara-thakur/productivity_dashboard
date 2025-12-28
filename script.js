@@ -21,7 +21,7 @@ openFeatures();
 function weatherApi() {
   let fulldate = document.querySelector(".header1 h2");
   let dayTime = document.querySelector(".header1 h1");
-  let temp = document.querySelector(".header2 h2");
+  let temp = document.querySelector(".header2 .temp");
   let condition = document.querySelector(".header2 .condition");
   let humidity = document.querySelector(".header2 .humidity");
   let wind = document.querySelector(".header2 .wind");
