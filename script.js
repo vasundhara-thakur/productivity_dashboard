@@ -17,11 +17,83 @@ function openFeatures() {
 }
 openFeatures();
 
+// weather
+function weatherApi() {
+  let fulldate = document.querySelector(".header1 h2");
+  let dayTime = document.querySelector(".header1 h1");
+  let temp = document.querySelector(".header2 h2");
+  let condition = document.querySelector(".header2 .condition");
+  let humidity = document.querySelector(".header2 .humidity");
+  let wind = document.querySelector(".header2 .wind");
+  let data = null;
+
+  async function weatherAPICall() {
+    const apiKey = `742e0da1c5c94345a55144813252712`;
+    let city = "indore";
+    let res = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
+    );
+
+    data = await res.json();
+
+    temp.innerHTML = `${data.current.temp_c} °C`;
+    condition.innerHTML = ` ${data.current.condition.text}`;
+    humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+    wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
+  }
+  weatherAPICall();
+
+  function currDayTime() {
+    let date = new Date();
+
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let dayOfWeek = days[date.getDay()];
+    let currDate = date.getDate();
+    let monthOfYear = months[date.getMonth()];
+    let year = date.getFullYear();
+
+    let hours = date.getHours();
+    let minutes = String(date.getMinutes()).padStart(2, "0");
+
+    let period = hours >= 12 ? "PM" : "AM";
+    let displayHours = hours % 12 || 12;
+
+    fulldate.innerHTML = `${currDate} ${monthOfYear}, ${year}`;
+    dayTime.innerHTML = `${dayOfWeek}, ${displayHours}:${minutes} ${period}`;
+  }
+  currDayTime();
+  setInterval(currDayTime, 1000);
+}
+weatherApi();
+
+// todo
 function todoList() {
   const form = document.querySelector(".addTask form");
   const taskInput = document.querySelector(".addTask form input");
   const taskDetailsInput = document.querySelector(".addTask form textarea");
-  const allTask = document.querySelector(".allTask");
   const task = document.querySelector(".allTask .tasks");
 
   let currTask = JSON.parse(localStorage.getItem("task")) || [];
@@ -81,12 +153,14 @@ function todoList() {
     });
 
     completedTask.forEach((btn, i) => {
-      btn.style.backgroundColor = currTask[i].completed ? "#27ae60" : "#ccc";
+      btn.style.backgroundColor = currTask[i].completed
+        ? "var(--green)"
+        : "#ccc";
       btn.style.color = "#111111";
     });
 
     pendingTask.forEach((btn, i) => {
-      btn.style.backgroundColor = currTask[i].pending ? "#f39c12" : "#ccc";
+      btn.style.backgroundColor = currTask[i].pending ? "var(--must)" : "#ccc";
       btn.style.color = "#111111";
     });
   }
@@ -118,6 +192,7 @@ function todoList() {
 }
 todoList();
 
+// dailyPlanner
 function dailyPlanner() {
   const planner = document.querySelector(".day-planner");
   let dayData = JSON.parse(localStorage.getItem("dayData")) || {};
@@ -147,6 +222,7 @@ function dailyPlanner() {
 }
 dailyPlanner();
 
+// quotes
 function motivationalQuotes() {
   const quotes = document.querySelector(".quote-2 h4");
   const author = document.querySelector(".quote-3 h2");
@@ -164,6 +240,7 @@ function motivationalQuotes() {
 }
 motivationalQuotes();
 
+// timer
 function pomodoroTimer() {
   let totalSeconds = 25 * 60;
   let timer = document.querySelector(".pomo-timer h2");
@@ -195,7 +272,7 @@ function pomodoroTimer() {
           clearInterval(startInterval);
           timer.innerHTML = "05:00";
           session.innerHTML = "Take a Break";
-          session.style.backgroundColor = "var(--pri)";
+          session.style.backgroundColor = "var(--must)";
           totalSeconds = 5 * 60;
         }
       }, 1000);
@@ -209,7 +286,7 @@ function pomodoroTimer() {
           clearInterval(startInterval);
           timer.innerHTML = "25:00";
           session.innerHTML = "Working Time";
-          session.style.backgroundColor = "var(--sec)";
+          session.style.backgroundColor = "var(--green)";
           totalSeconds = 25 * 60;
         }
       }, 1000);
@@ -232,54 +309,66 @@ function pomodoroTimer() {
 }
 pomodoroTimer();
 
-let fulldate = document.querySelector(".header1 h2");
-let dayTime = document.querySelector(".header1 h1");
-let temp = document.querySelector(".header2 h2");
-let condition = document.querySelector(".header2 .condition");
-let humidity = document.querySelector(".header2 .humidity");
-let wind = document.querySelector(".header2 .wind");
-let data = null;
+// goals
+function dailyGoals() {
+  const goalInput = document.querySelector(".add-goal input");
+  const addGoalBtn = document.querySelector(".add-goal button");
+  const allGoals = document.querySelector(".right .new-goals");
 
-async function weatherAPICall() {
-  const apiKey = `742e0da1c5c94345a55144813252712`;
-  let city = "indore";
-  let res = await fetch(
-    `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
-  );
+  let currgoal = JSON.parse(localStorage.getItem("allGoals")) || [];
 
-  data = await res.json();
-   console.log(data.current)
+  function rendergoal() {
+    let sum = "";
+    currgoal.forEach((elem, index) => {
+      sum += `
+        <div class="added">
+        <label class="goal">
+          <input type="checkbox" ${
+            elem.completed ? "checked" : ""
+          } data-index="${index}">
+          <span></span>
+          <h2>${elem.goalName}</h2>
+        </label>
+        <button class="delete" data-index="${index}">✕</button></div>
+      `;
+    });
+    allGoals.innerHTML = sum;
+  }
+  rendergoal();
 
-   temp.innerHTML = `${data.current.temp_c} °C`;
-   condition.innerHTML = ` ${data.current.condition.text}`;
-   humidity.innerHTML = `Humidity: ${data.current.humidity}`;
-   wind.innerHTML = `Wind: ${data.current.wind_kph} km/h`;
+  addGoalBtn.addEventListener("click", () => {
+    const goalName = goalInput.value.trim();
+    if (!goalName) return;
+
+    currgoal.push({
+      goalName,
+      completed: false,
+    });
+
+    saveGoals();
+    rendergoal();
+    goalInput.value = "";
+  });
+
+  function saveGoals() {
+    localStorage.setItem("allGoals", JSON.stringify(currgoal));
+  }
+
+  allGoals.addEventListener("change", (e) => {
+    if (e.target.type === "checkbox") {
+      const index = e.target.dataset.index;
+      currgoal[index].completed = e.target.checked;
+      saveGoals();
+    }
+  });
+
+  allGoals.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+      const index = e.target.dataset.index;
+      currgoal.splice(index, 1);
+      saveGoals();
+      rendergoal();
+    }
+  });
 }
-weatherAPICall();
-
-function currDayTime() {
-  let date = new Date();
-
-  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  const months = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December"
-  ];
-
-  let dayOfWeek = days[date.getDay()];
-  let currDate = date.getDate();
-  let monthOfYear = months[date.getMonth()];
-  let year = date.getFullYear();
-
-  let hours = date.getHours();
-  let minutes = String(date.getMinutes()).padStart(2, "0");
-
-  let period = hours >= 12 ? "PM" : "AM";
-  let displayHours = hours % 12 || 12;
-
-  fulldate.innerHTML = `${currDate} ${monthOfYear}, ${year}`;
-  dayTime.innerHTML = `${dayOfWeek}, ${displayHours}:${minutes} ${period}`;
-}
-currDayTime();
-setInterval(currDayTime, 1000);
-
+dailyGoals();

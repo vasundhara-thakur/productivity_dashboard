@@ -7,6 +7,9 @@
   --sec: #435585;
   --teri: #818fb4;
   --quat: #fcf8f8;
+  --must: #f5b942;
+  --green: #27ae60;
+  --red: red;
 }
 * {
   margin: 0;
@@ -24,6 +27,9 @@ main {
   width: 100%;
   height: 100vh;
 }
+main button:active {
+  scale: 0.95;
+}
 section.allelems {
   width: 100%;
   height: 100%;
@@ -34,31 +40,32 @@ section.allelems {
 .allelems header {
   height: 40%;
   width: 100%;
-  background:linear-gradient( var(--pri), var(--sec));
-  margin-bottom: 20px;
+  background: linear-gradient(var(--pri), var(--sec));
+  box-shadow: 0px 5px 10px var(--must);
+  margin-bottom: 30px;
   border-radius: 10px;
   padding: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-header .header1 h1{
+header .header1 h1 {
   font-size: 80px;
   font-weight: 500;
 }
-header .header1 h2{
+header .header1 h2 {
   font-size: 22px;
   font-weight: 500;
 }
-header .header1 h4{
+header .header1 h4 {
   font-size: 60px;
   font-weight: 500;
 }
-header .header2 h2{
+header .header2 h2 {
   font-size: 60px;
   font-weight: 500;
 }
-header .header2 h3{
+header .header2 h3 {
   font-size: 25px;
   font-weight: 500;
 }
@@ -74,7 +81,7 @@ header .header2 h3{
   width: 300px;
   background-color: var(--teri);
   border-radius: 10px;
-  box-shadow: 0 5px 10px var(--sec);
+  box-shadow: 0px 5px 10px var(--must);
   position: relative;
   cursor: pointer;
   transition: all ease 0.4s;
@@ -89,7 +96,7 @@ header .header2 h3{
   font-size: 20px;
   font-weight: 600;
   padding: 5px 8px;
-  border: 1px solid white;
+  border: 1px solid var(--quat);
   border-radius: 5px;
   background-color: var(--teri);
   position: absolute;
@@ -118,8 +125,8 @@ header .header2 h3{
 .back {
   border-radius: 50%;
   border: none;
-  background-color: var(--sec);
-  color: var(--quat);
+  background-color: var(--must);
+  font-weight: 600;
   padding: 5px 7px;
   font-size: 25px;
   transition: all ease 0.4s;
@@ -127,6 +134,8 @@ header .header2 h3{
 .back:active {
   scale: 0.9;
 }
+
+/* todo */
 .todo-fullpage .todo-container {
   width: 100%;
   height: 80%;
@@ -141,14 +150,14 @@ header .header2 h3{
   height: 100%;
   background-color: var(--sec);
   border-radius: 10px;
-  box-shadow: 0 5px 10px var(--sec);
+  box-shadow: 0 5px 10px var(--must);
 }
 .todo-fullpage .todo-container .allTask {
   width: 65%;
   height: 100%;
   background-color: var(--sec);
   border-radius: 10px;
-  box-shadow: 0 5px 10px var(--sec);
+  box-shadow: 0 5px 10px var(--must);
 }
 .todo-container .addTask form {
   width: 100%;
@@ -184,8 +193,9 @@ textarea,
 .btn {
   margin-top: 50px;
   width: 40%;
-  background-color: var(--teri);
-  color: var(--quat);
+  background-color: var(--must);
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 .todo-container .allTask .task {
   display: flex;
@@ -219,10 +229,13 @@ textarea,
   font-size: 17px;
   border: none;
   color: var(--quat);
+  transition: all 0.3s ease;
 }
 .allTask .task .delete {
-  background-color: rgb(236, 3, 3);
+  background-color: var(--red);
 }
+
+/* daily-planner */
 .planner-fullpage {
   background-color: var(--teri);
 }
@@ -230,6 +243,7 @@ textarea,
   width: 100%;
   height: 70%;
   background-color: var(--sec);
+  box-shadow: 0px 5px 10px var(--must);
   margin-top: 30px;
   padding: 25px;
   border-radius: 10px;
@@ -239,7 +253,6 @@ textarea,
   justify-content: space-between;
   overflow: auto;
 }
-
 .day-planner .planner-time {
   display: flex;
   align-items: center;
@@ -261,11 +274,13 @@ textarea,
   font-size: 24px;
   background-color: var(--pri);
 }
-.quotes-fullpage{
+
+/* quotes */
+.quotes-fullpage {
   position: relative;
-  background: radial-gradient(var(--pri), var(--sec));
+  background: radial-gradient(var(--must), var(--pri), var(--sec));
 }
-.quotes-fullpage .quote-container{
+.quotes-fullpage .quote-container {
   width: 60%;
   height: 500px;
   border-radius: 50px;
@@ -274,8 +289,7 @@ textarea,
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.quotes-fullpage .quote-container .quote-wrapper{
+.quotes-fullpage .quote-container .quote-wrapper {
   width: 100%;
   border-radius: 20px;
   border-left: 5px solid black;
@@ -285,37 +299,38 @@ textarea,
   padding: 15px;
   background-color: transparent;
 }
-.quote-1{
+.quote-1 {
   height: 60px;
   padding: 12px;
   text-align: center;
   border-radius: 30px;
 }
-.quote-1 h2{
+.quote-1 h2 {
   font-size: 35px;
   font-weight: 600;
 }
-.quote-2{
+.quote-2 {
   padding: 15px;
 }
-.quote-2 h4{
+.quote-2 h4 {
   font-size: 40px;
   font-weight: 400;
 }
-.quote-3{
+.quote-3 {
   padding: 12px;
   text-align: right;
   border-radius: 30px;
 }
-.quote-3 h2{
+.quote-3 h2 {
   font-size: 30px;
   font-weight: 500;
 }
 
-.timer h1{
+/* timer */
+.timer h1 {
   font-size: 50px;
 }
-.timer .pomo-timer{
+.timer .pomo-timer {
   border-radius: 10px;
   position: absolute;
   top: 50%;
@@ -323,12 +338,13 @@ textarea,
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.timer .pomo-timer h2{
+.timer .pomo-timer h2 {
   font-size: 100px;
 }
-.timer .session{
+.timer .session {
   font-size: 30px;
-  background-color: var(--sec);
+  background-color: var(--green);
+  color: var(--quat);
   padding: 10px;
   border-radius: 10px;
   position: absolute;
@@ -336,35 +352,140 @@ textarea,
   left: 50%;
   transform: translate(-50%, 0);
 }
-.timer .session h3{
+.timer .session h3 {
   font-size: 30px;
   font-weight: 500;
 }
-.timer .pomo-timer button{
-  background-color: var(--sec);
-  padding:10px 20px;
+.timer .pomo-timer button {
+  padding: 10px 20px;
   font-size: 20px;
   margin: 10px;
   border: none;
   border-radius: 5px;
   box-shadow: 5px 5px 0px black;
-  transition: all ease 0.2s
+  transition: all ease 0.2s;
 }
-.timer .pomo-timer button:active{
+.pomo-timer .start-timer {
+  background-color: var(--green);
+  color: var(--quat);
+}
+.pomo-timer .pause-timer {
+  background-color: var(--must);
+  color: black;
+}
+.pomo-timer .reset-timer {
+  background-color: var(--sec);
+  color: var(--quat);
+}
+.timer .pomo-timer button:active {
   scale: 0.95;
   box-shadow: 0px 0px 0px black;
 }
-/* ========== TABLET (max-width: 1024px) ========== */
+
+/* daily-goals */
+.goals .goals-container {
+  width: 100%;
+  height: 80%;
+  margin-top: 25px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goals .goals-container .left {
+  width: 33%;
+  height: 100%;
+  background-color: var(--sec);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px var(--must);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+.goals-container .left .add-goal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.goals .goals-container .add-goal input {
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+}
+.goals .goals-container .add-goal button {
+  padding: 10px 20px;
+  font-size: 22px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: var(--must);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.28);
+  transition: all 0.3s ease;
+}
+.goals .goals-container .right {
+  width: 65%;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--sec);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px var(--must);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.right .new-goals .added {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.new-goals .added .delete {
+  padding: 5px 8px;
+  margin-right: 5px;
+  background-color: var(--red);
+  color: var(--quat);
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+}
+.right .goal {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 2px solid var(--must);
+}
+.goal input {
+  display: none;
+}
+.goal span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--quat);
+  border-radius: 4px;
+}
+.goal input:checked + span {
+  background-color: var(--green);
+}
+.goal h2 {
+  color: var(--quat);
+  font-size: 25px;
+  font-weight: 500;
+}
+/* TABLET (max-width: 1024px) */
 @media (max-width: 1024px) {
   section .allFeatures {
     gap: 30px;
     padding: 30px;
-    /* justify-content: center; */
   }
 
   .elem {
-  height: 300px;
-  width: 250px;
+    height: 300px;
+    width: 250px;
   }
 
   .todo-fullpage .todo-container {
@@ -378,35 +499,44 @@ textarea,
     width: 100%;
     height: auto;
   }
+  .goals .goals-container {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
 
+  .goals .goals-container .left,
+  .goals .goals-container .right {
+    width: 100%;
+    height: auto;
+  }
 }
-
-/* ========== MOBILE (max-width: 768px) ========== */
+/* MOBILE (max-width: 768px) */
 @media (max-width: 768px) {
   section .allelems {
     padding: 20px;
     gap: 20px;
   }
-  header .header1 h1{
-  font-size: 35px;
-  font-weight: 500;
-}
-header .header1 h2{
-  font-size: 18px;
-  font-weight: 500;
-}
-header .header1 h4{
-  font-size: 25px;
-  font-weight: 500;
-}
-header .header2 h2{
-  font-size: 25px;
-  font-weight: 500;
-}
-header .header2 h3{
-  font-size: 20px;
-  font-weight: 500;
-}
+  header .header1 h1 {
+    font-size: 35px;
+    font-weight: 500;
+  }
+  header .header1 h2 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  header .header1 h4 {
+    font-size: 25px;
+    font-weight: 500;
+  }
+  header .header2 h2 {
+    font-size: 25px;
+    font-weight: 500;
+  }
+  header .header2 h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
   .elem {
     max-width: 350vw;
     height: 250px;
@@ -436,46 +566,82 @@ header .header2 h3{
     gap: 10px;
     font-size: 18px;
   }
-  .day-planner .planner-time{
-  width: 100%;
+  .day-planner .planner-time {
+    width: 100%;
   }
-  .quote-1 h2{
-  font-size: 30px;
-}
-.quote-2 h4{
-  font-size: 25px;
-  margin-top: 20px;
-}
-}
+  .quote-1 h2 {
+    font-size: 30px;
+  }
+  .quote-2 h4 {
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  .goals .goals-container {
+    flex-direction: column;
+  }
+  .goals .goals-container {
+    padding: 15px;
+  }
 
-/* ========== SMALL MOBILE (max-width: 480px) ========== */
+  .goals .goals-container .left {
+    padding: 20px 15px;
+  }
+  .goals-container .left .add-goal {
+    flex-direction: row;
+    padding: 20px 0;
+    gap: 15px;
+  }
+
+  .right {
+    padding: 15px;
+  }
+
+  .right .goal {
+    padding: 8px 5px;
+  }
+
+  .goal h2 {
+    font-size: 18px;
+  }
+
+  .goal span {
+    width: 16px;
+    height: 16px;
+  }
+
+  .new-goals .added .delete {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+/* (max-wi */
 @media (max-width: 480px) {
   section.allelems {
     padding: 15px;
   }
-  .allelems header{
+  .allelems header {
     flex-direction: column;
   }
-  header .header1 h1{
-  font-size: 25px;
-  font-weight: 500;
-}
-header .header1 h2{
-  font-size: 15px;
-  font-weight: 500;
-}
-header .header1 h4{
-  font-size: 20px;
-  font-weight: 500;
-}
-header .header2 h2{
-  font-size: 20px;
-  font-weight: 500;
-}
-header .header2 h3{
-  font-size: 18px;
-  font-weight: 500;
-}
+  header .header1 h1 {
+    font-size: 25px;
+    font-weight: 500;
+  }
+  header .header1 h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  header .header1 h4 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  header .header2 h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  header .header2 h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
   .elem {
     height: 300px;
   }
@@ -503,10 +669,16 @@ header .header2 h3{
     padding: 8px 15px;
   }
   .allTask .task .dets {
-  flex-direction: column;
-  align-items: flex-start;
-}
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .allTask .task .task-btns {
     flex-direction: column;
+  }
+  .goals-container .left .add-goal {
+    flex-direction: column;
+    font-size: 16px;
+    padding: 10px 0;
+    gap: 15px;
   }
 }

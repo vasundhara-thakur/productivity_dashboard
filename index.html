@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productivity Dashboard</title>
-    <link rel="shortcut icon" href="./Font/apple-touch-icon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./Font/apple-touch-icon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
@@ -19,7 +23,6 @@
             <h2></h2>
             <h1></h1>
             <h4>Indore (MP)</h4>
-            
           </div>
 
           <div class="header2">
@@ -47,13 +50,14 @@
             <img src="./images/timer.webp" alt="" />
             <h1>Pomodoro Timer</h1>
           </div>
-          <!-- <div class="goals elem" id="4">
+          <div class="goals elem" id="4">
             <img src="./images/goals.webp" alt="" />
             <h1>Daily Goals</h1>
-          </div> -->
+          </div>
         </div>
       </section>
 
+      <!-- todo page -->
       <section class="fullelems todo-fullpage">
         <button class="back" id="0"><i class="ri-arrow-left-line"></i></button>
         <h1>Your To-Do Space</h1>
@@ -79,6 +83,8 @@
           </div>
         </div>
       </section>
+
+      <!-- planner page -->
       <section class="fullelems planner-fullpage">
         <button class="back" id="1"><i class="ri-arrow-left-line"></i></button>
         <h1>Get Things Done Today</h1>
@@ -93,6 +99,8 @@
           </div>
         </div>
       </section>
+
+      <!-- quotes page -->
       <section class="fullelems quotes-fullpage">
         <button class="back" id="2"><i class="ri-arrow-left-line"></i></button>
         <div class="quote-container">
@@ -109,6 +117,8 @@
           </div>
         </div>
       </section>
+
+      <!-- timer page -->
       <section class="fullelems timer">
         <button class="back" id="3"><i class="ri-arrow-left-line"></i></button>
         <h1>Work Smarter, Not Longer.</h1>
@@ -122,10 +132,23 @@
           <button class="reset-timer">Reset</button>
         </div>
       </section>
-      <!-- <section class="fullelems goals">
+
+      <!-- goals page -->
+      <section class="fullelems goals">
         <button class="back" id="4"><i class="ri-arrow-left-line"></i></button>
         <h1>Daily Goals</h1>
-      </section> -->
+        <div class="goals-container">
+          <div class="left">
+            <div class="add-goal">
+              <input type="text" placeholder="Enter Today's Goal" required />
+              <button>Submit</button>
+            </div>
+          </div>
+          <div class="right">
+            <dic class="new-goals"></dic>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
